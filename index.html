@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Tolan Designs | Designing Digital Experiences That Scale</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .hero-clip {
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal-on-scroll {
+            opacity: 0;
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+    <!-- Theme Configuration -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#5f402a",
+                        "on-background": "#1b1c1c",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#ddc1b3",
+                        "inverse-surface": "#303030",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#ffdbcd",
+                        "tertiary": "#914723",
+                        "primary-container": "#bb5808",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#fffbff",
+                        "secondary-fixed-dim": "#eabda0",
+                        "on-primary-fixed": "#321200",
+                        "surface": "#fcf9f8",
+                        "error": "#ba1a1a",
+                        "primary": "#974400",
+                        "tertiary-fixed-dim": "#ffb596",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#7a5840",
+                        "on-surface": "#1b1c1c",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#ffd1b3",
+                        "on-secondary-fixed": "#2d1604",
+                        "secondary": "#79573f",
+                        "outline": "#8a7266",
+                        "inverse-primary": "#ffb68d",
+                        "primary-fixed-dim": "#ffb68d",
+                        "background": "#fcf9f8",
+                        "surface-dim": "#dcd9d9",
+                        "tertiary-container": "#b05e38",
+                        "on-surface-variant": "#564338",
+                        "on-primary-container": "#fffbff",
+                        "surface-bright": "#fcf9f8",
+                        "on-tertiary-fixed-variant": "#76320f",
+                        "primary-fixed": "#ffdbc9",
+                        "inverse-on-surface": "#f3f0f0",
+                        "surface-container-highest": "#e4e2e1",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#763400",
+                        "on-tertiary-fixed": "#360f00",
+                        "surface-container": "#f0eded",
+                        "surface-tint": "#9a4600",
+                        "secondary-fixed": "#ffdcc6",
+                        "surface-variant": "#e4e2e1",
+                        "surface-container-high": "#eae7e7",
+                        "surface-container-low": "#f6f3f2",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "160px",
+                        "container-max": "1440px",
+                        "gutter": "32px",
+                        "unit": "8px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "quote": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "label-caps": ["Inter"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["48px", { "lineHeight": "56px", "fontWeight": "600" }],
+                        "display-lg": ["84px", { "lineHeight": "92px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "quote": ["28px", { "lineHeight": "42px", "fontWeight": "400" }],
+                        "body-lg": ["20px", { "lineHeight": "32px", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "500" }],
+                        "display-lg-mobile": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "38px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "26px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-surface text-on-background font-body-md overflow-x-hidden">
+    <!-- TopNavBar -->
+    <nav class="fixed top-0 w-full z-50 bg-surface dark:bg-on-background flat no shadows">
+        <div
+            class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-unit max-w-container-max mx-auto h-20">
+            <a class="font-headline-md text-headline-md font-bold tracking-tighter text-on-background dark:text-surface"
+                href="#">
+                TOLAN DESIGNS
+            </a>
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center gap-gutter">
+                <div class="flex gap-8 font-label-caps text-label-caps tracking-widest">
+                    <a class="text-primary dark:text-primary-fixed-dim border-b border-primary pb-1 transition-opacity duration-300 active:opacity-70"
+                        href="#">Portfolio</a>
+                    <a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300"
+                        href="#">Story</a>
+                    <a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300"
+                        href="#">Toolkit</a>
+                    <a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300"
+                        href="#">Contact</a>
+                </div>
+                <a href="/resume/Ajisegiri Tolani (3).pdf" target="_blank">
+                    <button
+                        class="bg-primary-container text-on-primary-container px-6 py-2 font-label-caps tracking-widest hover:opacity-90 transition-all">
+                        Resumé
+                    </button>
+                </a>
+
+            </div>
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-on-background" id="mobileMenuBtn" aria-label="Toggle mobile menu">
+                <span class="material-symbols-outlined" id="menuIcon">menu</span>
+            </button>
+        </div>
+        <!-- Mobile Navigation -->
+        <div id="mobileNav"
+            class="hidden md:hidden bg-surface dark:bg-on-background border-t border-outline-variant/30 px-margin-mobile py-6">
+            <div class="flex flex-col gap-6 font-label-caps text-label-caps tracking-widest">
+                <a class="text-primary dark:text-primary-fixed-dim border-b border-primary pb-2 transition-opacity duration-300 active:opacity-70"
+                    href="#">Portfolio</a>
+                <a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 pb-2 border-b border-outline-variant/20"
+                    href="#">Story</a>
+                <a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 pb-2 border-b border-outline-variant/20"
+                    href="#">Toolkit</a>
+                <a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 pb-2 border-b border-outline-variant/20"
+                    href="#">Contact</a>
+                <a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-300 pb-2 border-b border-outline-variant/20"
+                    href="/resume/Ajisegiri Tolani (3).pdf" target="_blank">Resumé</a>
+                <button
+                    class="bg-primary-container text-on-primary-container px-6 py-3 font-label-caps tracking-widest hover:opacity-90 transition-all w-full mt-2">
+                    Resumé
+                </button>
+            </div>
+        </div>
+    </nav>
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section
+            class="min-h-screen flex flex-col justify-center px-margin-mobile md:px-margin-desktop py-section-gap relative overflow-hidden">
+            <div class="max-w-container-max mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+                <div class="lg:col-span-8 z-10 fade-in-up">
+                    <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] mb-6 block">PRODUCT
+                        DESIGNER &amp; TASTEMAKER</span>
+                    <h1
+                        class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-8 leading-[1.1]">
+                        Designing Digital <br class="hidden md:block" /> Experiences That <span
+                            class="text-primary italic">Scale.</span>
+                    </h1>
+                    <p
+                        class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-12 border-l-2 border-outline-variant pl-8">
+                        Hi, I’m Tolani (Tolan Designs), a Product Designer with 4+ years of experience helping startups
+                        and businesses transform ideas into scalable digital products across Fintech, Gaming, Web3, and
+                        E-commerce.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-6">
+                        <a class="bg-primary text-on-primary px-10 py-5 font-label-caps tracking-widest transition-transform hover:-translate-y-1 text-center"
+                            href="#work">
+                            View My Work
+                        </a>
+                        <a class="border border-secondary text-on-background px-10 py-5 font-label-caps tracking-widest hover:bg-secondary-container transition-all text-center"
+                            href="#contact">
+                            Let's Work Together
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:col-span-4 mt-12 lg:mt-0 relative group">
+                    <div class="aspect-[3/4] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
+                        <img src="/image/WhatsApp Image 2026-07-07 at 09.35.49.jpeg" alt="">
+                    </div>
+                    <div class="absolute -bottom-8 -right-8 w-48 h-48 bg-primary/10 -z-10 hidden md:block"></div>
+                </div>
+            </div>
+        </section>
+        <!-- Quick Introduction & Services -->
+        <section class="bg-surface-container-low py-section-gap px-margin-mobile md:px-margin-desktop">
+            <div class="max-w-container-max mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-24">
+                    <div class="lg:col-span-6">
+                        <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-8">
+                            I design products that balance <span class="italic">business goals</span> with exceptional
+                            user experiences.
+                        </h2>
+                    </div>
+                    <div class="lg:col-span-5 lg:col-start-8 flex items-end">
+                        <p class="font-body-md text-body-md text-on-surface-variant">
+                            My approach combines data-driven strategy with high-end visual aesthetics. I help ventures
+                            in Fintech, Gaming, Web3, and SaaS define their digital soul and scale it for global
+                            audiences.
+                        </p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-1 border-t border-outline-variant/30">
+                    <!-- Service 1 -->
+                    <div class="py-12 group">
+                        <span
+                            class="material-symbols-outlined text-primary mb-6 block text-4xl">dashboard_customize</span>
+                        <h3 class="font-label-caps text-label-caps mb-4">Product Design</h3>
+                        <p class="text-body-md text-on-surface-variant pr-4">End-to-end product lifecycles from ideation
+                            to launch.</p>
+                    </div>
+                    <!-- Service 2 -->
+                    <div class="py-12 group">
+                        <span class="material-symbols-outlined text-primary mb-6 block text-4xl">travel_explore</span>
+                        <h3 class="font-label-caps text-label-caps mb-4">UX Research</h3>
+                        <p class="text-body-md text-on-surface-variant pr-4">Deep dives into user behavior and market
+                            strategy.</p>
+                    </div>
+                    <!-- Service 3 -->
+                    <div class="py-12 group">
+                        <span class="material-symbols-outlined text-primary mb-6 block text-4xl">view_in_ar</span>
+                        <h3 class="font-label-caps text-label-caps mb-4">Prototyping</h3>
+                        <p class="text-body-md text-on-surface-variant pr-4">High-fidelity interactive demos and motion
+                            design.</p>
+                    </div>
+                    <!-- Service 4 -->
+                    <div class="py-12 group">
+                        <span class="material-symbols-outlined text-primary mb-6 block text-4xl">palette</span>
+                        <h3 class="font-label-caps text-label-caps mb-4">Visual &amp; Brand</h3>
+                        <p class="text-body-md text-on-surface-variant pr-4">Defining the visual identity and design
+                            systems.</p>
+                    </div>
+                    <!-- Service 5 -->
+                    <div class="py-12 group">
+                        <span class="material-symbols-outlined text-primary mb-6 block text-4xl">brush</span>
+                        <h3 class="font-label-caps text-label-caps mb-4">Fashion Illustration</h3>
+                        <p class="text-body-md text-on-surface-variant pr-4">Merging lifestyle aesthetics with digital
+                            creativity.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Featured Work -->
+        <section class="py-section-gap px-margin-mobile md:px-margin-desktop" id="work">
+            <div class="max-w-container-max mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+                    <div class="max-w-2xl">
+                        <span
+                            class="font-label-caps text-label-caps text-primary tracking-widest block mb-4">PORTFOLIO</span>
+                        <h2
+                            class="font-display-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-6">
+                            Selected Design Work</h2>
+                        <p class="text-body-lg text-on-surface-variant">Selected projects that demonstrate my approach
+                            to solving complex product challenges and creating scalable user experiences.</p>
+                    </div>
+                    <a class="group flex items-center gap-4 font-label-caps text-label-caps tracking-widest text-primary border-b border-primary/20 pb-2"
+                        href="#">
+                        Explore Design Work
+                        <span
+                            class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+                    </a>
+                </div>
+                <!-- Bento Grid Style Layout -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+                    <!-- Project 1 (Large) -->
+                    <div class="md:col-span-8 group cursor-pointer">
+                        <div class="aspect-[16/9] overflow-hidden bg-surface-container relative mb-8">
+                            <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                                data-alt="A sleek, professional screenshot of a high-end Fintech mobile application dashboard. The UI features sophisticated typography in deep charcoal and elegant burnt orange accents. Minimalist glassmorphism cards display investment portfolios and real-time market trends. The overall aesthetic is crisp, expensive, and modern, reflecting a premium financial experience for high-net-worth users."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVtdU3U7zjsixwv74El5v-DpM-i3x2lP9Mops0MYqSqiQR1cio1mQ1kkYPpdX31_8l19SoaQ-LLoCXvqgVpK1A_yw43W0MiT5pvkzh1gg4ifBKbXMQ6syyS_XVdTDphZk6VDsasaR0Sn661NimnRGK5Rldaifd2feBK_nXxCKbkROoQ6td6H1VcVbnu4exgJF7Sbx2TcLypOBoat_XFn4S8DIUAaTFxJU-ikW2WcaU0o1mbwVS8T0IFcIz_btsVZYJD1v8mQ5ZN2Sv" />
+                            <div
+                                class="absolute top-6 left-6 bg-surface/90 backdrop-blur px-4 py-2 font-label-caps text-[10px] tracking-widest">
+                                FINTECH • 2024</div>
+                        </div>
+                        <h3 class="font-headline-md text-headline-md mb-2">Omni Finance Ecosystem</h3>
+                        <p class="text-on-surface-variant font-body-md max-w-lg">Redesigning the wealth management
+                            experience for a new generation of digital-native investors.</p>
+                    </div>
+                    <!-- Project 2 (Tall) -->
+                    <div class="md:col-span-4 group cursor-pointer md:mt-24">
+                        <div class="aspect-[4/5] overflow-hidden bg-surface-container relative mb-8">
+                            <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                                data-alt="A vibrant and immersive Web3 gaming interface mockup. The screen shows a character customization menu with glowing elements and rich textures. Deep purple and burnt orange lighting effects create a sense of mystery and excitement. The UI elements are sharp, metallic, and modern, blending high-end fashion aesthetics with gaming dynamism."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxgYYqFkoB03b5Jm-HW9Zeb94obSeKgGg7tj_mJPwQO2_GHSSNRw44MF9UkE4X8By_0f2Q5_cVWphUFboOucZEctJ3YTVhcHR1KLE9Z5tm15LCNRVORIV4Lz4ipWdQjcQIhDTX5A6EMaj-puxDXFOS8Da8wqjQ_FlE9lEA4PBrF1Z-8jhfgdiOUTKJuYCzjRV6tdFhcbgmzmgfCo1ff9lCwSjNIYcPX7VVbbYjgjOLAVLkrRshiI9B5W1uORS2xRH0ypdVZkxKGTpt" />
+                            <div
+                                class="absolute top-6 left-6 bg-surface/90 backdrop-blur px-4 py-2 font-label-caps text-[10px] tracking-widest">
+                                GAMING • WEB3</div>
+                        </div>
+                        <h3 class="font-headline-md text-headline-md mb-2">Aether Verse</h3>
+                        <p class="text-on-surface-variant font-body-md">Creating a unified design system for a
+                            cross-platform metaverse gaming ecosystem.</p>
+                    </div>
+                    <!-- Project 3 (Medium) -->
+                    <div class="md:col-span-5 group cursor-pointer -mt-12 md:mt-0">
+                        <div class="aspect-square overflow-hidden bg-surface-container relative mb-8">
+                            <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                                data-alt="A minimalist E-commerce product page for a luxury fashion brand. Large, high-resolution photography of a textured leather accessory takes center stage. The typography is elegant serif for titles and clean sans-serif for product details. A sophisticated color palette of cream, coffee, and gold creates a high-end editorial feel."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAX856WFtw_oSqMF31D1aBW6IKO0lUVhLs0G9eFxfQqb_x6moiGXfoctwnfIZaKJgiA2nCQObCRTzjwglrZDMk_-Kj8_keHx-Mb5tgJBxJ7GUF6Ihzpr_91hHHjtLwd6UQppyNaWUK2L1NlbZvFoPnijgew1NYLso0R4lu2a5X22VGx2RkaPeVUEPWdc_5QJ5LHKLDvds3RRuGAIDM0WSWyKr8D0uLncLw_YQmr-ZpsXu7lhm6fmjIEyoXklCTlRlrz1cT50QlAnjX7" />
+                            <div
+                                class="absolute top-6 left-6 bg-surface/90 backdrop-blur px-4 py-2 font-label-caps text-[10px] tracking-widest">
+                                E-COMMERCE</div>
+                        </div>
+                        <h3 class="font-headline-md text-headline-md mb-2">Moda Luxury</h3>
+                        <p class="text-on-surface-variant font-body-md">Improving conversion through sensory-driven
+                            product storytelling and frictionless checkout flows.</p>
+                    </div>
+                    <!-- Project 4 (Wide/Asymmetric) -->
+                    <div class="md:col-span-7 group cursor-pointer md:pt-12">
+                        <div class="aspect-[3/2] overflow-hidden bg-surface-container relative mb-8">
+                            <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                                data-alt="A clean, functional SaaS dashboard for data analytics. The layout uses a sophisticated 12-column grid with plenty of whitespace. Intricate charts and data visualizations are rendered in a harmonious palette of muted tones. The design communicates clarity, power, and professional reliability through its minimalist editorial structure."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn9jiOSNCTbrMKTPH0Exe9RXiKi47Xo8tCIIYltrP8FiZEGfLXeMmf87BY0qHh3RgOJj3WU3r8E4GI9y0klYmUCExFwBLT7Zr1YmlMxH2BFjyNvSK6i6neW0-bgeVEwazwiwm7_eZ4taFd5EbVOEt063QWtMT1VxO9eVNdmKhMmgSgVHrE1vfHd2go2dViJ68g0miXjvp1-0brZWvCDDgPy9uJwm4L0JgJDHl19LTK2wF1mH_0l4_1V0aRygGuRWSobzlL-V5doWun" />
+                            <div
+                                class="absolute top-6 left-6 bg-surface/90 backdrop-blur px-4 py-2 font-label-caps text-[10px] tracking-widest">
+                                SAAS • AI</div>
+                        </div>
+                        <h3 class="font-headline-md text-headline-md mb-2">Clarity Analytics</h3>
+                        <p class="text-on-surface-variant font-body-md max-w-md">Simplifying complex data visualization
+                            for enterprise-level decision making in real-time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About Me / Story -->
+        <section
+            class="bg-on-background text-surface py-section-gap px-margin-mobile md:px-margin-desktop overflow-hidden">
+            <div class="max-w-container-max mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+                    <div class="lg:col-span-5 relative order-2 lg:order-1">
+                        <div class="aspect-[4/5] border border-surface/20 p-8 flex items-center justify-center">
+                            <img src="/image/IMG_3617.HEIC" alt="Tolan Design">
+                            <!-- <img class="w-full h-full object-cover opacity-80"
+                                data-alt="An artistic composition of digital design tools and fashion illustration sketches laid out on a dark mahogany desk. A high-end laptop shows a complex UI wireframe, while hand-drawn fashion figures in ink and watercolor rest beside it. Moody, directional lighting highlights the textures of the paper and the sleek metal of the devices, symbolizing the intersection of tech and art."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNJTG-MZMRMmTGRwTb68YFb1reFa8-tyxiU5DDpxK6KTIDecQMRCHnAbOrAux6bcONj3nhdUQ-foEXBYXtMgAxxfMA1jKcAre7t24ON1unN6eLABdKC43DncUlLsMfzCWuQrqkB4iZLpngIdkhcqDppgEsrSx3Ad7GieGzKASta98CLp0EXhJzQiq0_1cj9-tPQbgByL3dgcPLNiyotYx5GyrIsIsNO_k_Efyfbf0WamEAEiWEPi34ZjGM8j6_yFlVjlwKJDdOnorq" /> -->
+                        </div>
+                        <div
+                            class="absolute -top-12 -left-12 font-display-lg text-surface/5 select-none pointer-events-none hidden lg:block">
+                            STORY</div>
+                    </div>
+                    <div class="lg:col-span-6 lg:col-start-7 order-1 lg:order-2 mb-12 lg:mb-0">
+                        <span
+                            class="font-label-caps text-label-caps text-primary-fixed-dim tracking-[0.3em] block mb-6">THE
+                            PHILOSOPHY</span>
+                        <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-10 leading-tight">
+                            Designing products, solving problems, and bringing ideas to life.</h2>
+                        <div class="space-y-6 font-body-lg text-surface-variant">
+                            <p>My journey into design began as a hobby, a natural extension of my love for fashion and
+                                visual storytelling. Over the last 4+ years, that passion has evolved into a disciplined
+                                core profession centered on clarity, purpose, and scale.</p>
+                            <p>I believe great design isn't just about aesthetics; it's about understanding the core of
+                                a business problem and the soul of the user's needs. Whether I'm building a Fintech
+                                dashboard or sketching a fashion illustration, the goal remains the same: creating
+                                impact through intentionality.</p>
+                        </div>
+                        <div class="mt-16 grid grid-cols-2 gap-8 border-t border-surface/10 pt-12">
+                            <div>
+                                <h4 class="font-label-caps text-label-caps text-primary-fixed-dim mb-2 uppercase">Core
+                                    Values</h4>
+                                <ul class="font-body-md text-surface-variant space-y-2">
+                                    <li>User Centricity</li>
+                                    <li>Business Alignment</li>
+                                    <li>Scalable Systems</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-label-caps text-label-caps text-primary-fixed-dim mb-2 uppercase">
+                                    Passions</h4>
+                                <ul class="font-body-md text-surface-variant space-y-2">
+                                    <li>Digital Art</li>
+                                    <li>Fashion Illustration</li>
+                                    <li>Web3 Communities</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Tools & Skills -->
+        <section class="py-section-gap px-margin-mobile md:px-margin-desktop">
+            <div class="max-w-container-max mx-auto">
+                <div class="text-center mb-24">
+                    <span
+                        class="font-label-caps text-label-caps text-primary tracking-widest block mb-4">CAPABILITIES</span>
+                    <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg">The Designer's Toolkit</h2>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-gutter">
+                    <!-- Tool Card -->
+                    <div class="border-b border-outline-variant/30 pb-12 flex flex-col items-center">
+                        <div class="w-16 h-16 bg-surface-container flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined text-primary text-3xl">token</span>
+                        </div>
+                        <h4 class="font-label-caps text-label-caps">Figma</h4>
+                        <span class="text-on-surface-variant text-xs mt-1">Design Systems</span>
+                    </div>
+                    <div class="border-b border-outline-variant/30 pb-12 flex flex-col items-center">
+                        <div class="w-16 h-16 bg-surface-container flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined text-primary text-3xl">terminal</span>
+                        </div>
+                        <h4 class="font-label-caps text-label-caps">Framer</h4>
+                        <span class="text-on-surface-variant text-xs mt-1">Prototyping</span>
+                    </div>
+                    <div class="border-b border-outline-variant/30 pb-12 flex flex-col items-center">
+                        <div class="w-16 h-16 bg-surface-container flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined text-primary text-3xl">webhook</span>
+                        </div>
+                        <h4 class="font-label-caps text-label-caps">Webflow</h4>
+                        <span class="text-on-surface-variant text-xs mt-1">Development</span>
+                    </div>
+                    <div class="border-b border-outline-variant/30 pb-12 flex flex-col items-center">
+                        <div class="w-16 h-16 bg-surface-container flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined text-primary text-3xl">collections</span>
+                        </div>
+                        <h4 class="font-label-caps text-label-caps">Adobe CC</h4>
+                        <span class="text-on-surface-variant text-xs mt-1">Visual Arts</span>
+                    </div>
+                    <div class="border-b border-outline-variant/30 pb-12 flex flex-col items-center">
+                        <div class="w-16 h-16 bg-surface-container flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined text-primary text-3xl">smart_toy</span>
+                        </div>
+                        <h4 class="font-label-caps text-label-caps">AI Tools</h4>
+                        <span class="text-on-surface-variant text-xs mt-1">Generative Flow</span>
+                    </div>
+                </div>
+                <div class="mt-24 grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <div class="flex flex-col gap-4">
+                        <h3 class="font-headline-md text-headline-md border-b border-outline text-2xl pb-4">Core Skills
+                        </h3>
+                        <div class="flex flex-wrap gap-2 pt-4">
+                            <span class="bg-secondary-container px-4 py-2 font-label-caps text-[10px]">USER
+                                RESEARCH</span>
+                            <span
+                                class="bg-secondary-container px-4 py-2 font-label-caps text-[10px]">WIREFRAMING</span>
+                            <span class="bg-secondary-container px-4 py-2 font-label-caps text-[10px]">UI DESIGN</span>
+                            <span class="bg-secondary-container px-4 py-2 font-label-caps text-[10px]">MOTION
+                                DESIGN</span>
+                            <span
+                                class="bg-secondary-container px-4 py-2 font-label-caps text-[10px]">STORYTELLING</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <h3 class="font-headline-md text-headline-md border-b border-outline text-2xl pb-4">Industries
+                        </h3>
+                        <div class="flex flex-wrap gap-2 pt-4">
+                            <span class="border border-outline px-4 py-2 font-label-caps text-[10px]">FINTECH</span>
+                            <span class="border border-outline px-4 py-2 font-label-caps text-[10px]">SAAS</span>
+                            <span class="border border-outline px-4 py-2 font-label-caps text-[10px]">WEB3</span>
+                            <span class="border border-outline px-4 py-2 font-label-caps text-[10px]">E-COMMERCE</span>
+                            <span class="border border-outline px-4 py-2 font-label-caps text-[10px]">GAMING</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <h3 class="font-headline-md text-headline-md border-b border-outline text-2xl pb-4">Strategy
+                        </h3>
+                        <div class="flex flex-wrap gap-2 pt-4">
+                            <span class="bg-primary text-on-primary px-4 py-2 font-label-caps text-[10px]">PRODUCT
+                                ROADMAP</span>
+                            <span class="bg-primary text-on-primary px-4 py-2 font-label-caps text-[10px]">USER
+                                TESTING</span>
+                            <span class="bg-primary text-on-primary px-4 py-2 font-label-caps text-[10px]">DESIGN
+                                OPS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="bg-surface-container-high py-section-gap px-margin-mobile md:px-margin-desktop" id="contact">
+            <div class="max-w-container-max mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+                    <div class="lg:col-span-5 mb-16 lg:mb-0">
+                        <span class="font-label-caps text-label-caps text-primary tracking-widest block mb-4">GET IN
+                            TOUCH</span>
+                        <h2
+                            class="font-display-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-8">
+                            Let's Build Something Great</h2>
+                        <p class="font-body-lg text-on-surface-variant mb-12 max-w-md">
+                            Whether you're launching a new product, improving an existing experience, or looking for a
+                            creative collaborator, I'd love to hear from you.
+                        </p>
+                        <div class="space-y-8">
+                            <div class="flex gap-6 items-start">
+                                <span class="material-symbols-outlined text-primary">mail</span>
+                                <div>
+                                    <h4 class="font-label-caps text-label-caps">Email</h4>
+                                    <p class="text-body-md">hello@tolandesigns.com</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-6 items-start">
+                                <span class="material-symbols-outlined text-primary">pin_drop</span>
+                                <div>
+                                    <h4 class="font-label-caps text-label-caps">Location</h4>
+                                    <p class="text-body-md">Remote / Worldwide</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-6 lg:col-start-7 bg-surface p-8 md:p-12">
+                        <form id="contactForm" action="https://formsubmit.co/Omotolanifolashade9@gmail.com"
+                            method="POST" class="space-y-8">
+                            <!-- FormSubmit required hidden fields -->
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_template" value="table">
+                            <input type="hidden" name="_subject" value="New Contact Form Submission from Tolan Designs">
+
+                            <!-- Success redirect (optional - remove if you want to stay on page) -->
+                            <input type="hidden" name="_next"
+                                value="https://your-github-username.github.io/your-repo-name/#contact">
+
+                            <div id="formStatus" class="hidden p-4 mb-4 rounded"></div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div class="relative">
+                                    <label
+                                        class="font-label-caps text-[10px] uppercase text-on-surface-variant mb-1 block">Full
+                                        Name</label>
+                                    <input
+                                        class="w-full bg-transparent border-0 border-b border-outline-variant py-3 px-0 focus:ring-0 focus:border-primary transition-all text-on-background placeholder:text-outline/40"
+                                        placeholder="Your Name" type="text" name="name" required />
+                                </div>
+                                <div class="relative">
+                                    <label
+                                        class="font-label-caps text-[10px] uppercase text-on-surface-variant mb-1 block">Email
+                                        Address</label>
+                                    <input
+                                        class="w-full bg-transparent border-0 border-b border-outline-variant py-3 px-0 focus:ring-0 focus:border-primary transition-all text-on-background placeholder:text-outline/40"
+                                        placeholder="Your@email.com" type="email" name="email" required />
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div class="relative">
+                                    <label
+                                        class="font-label-caps text-[10px] uppercase text-on-surface-variant mb-1 block">Company</label>
+                                    <input
+                                        class="w-full bg-transparent border-0 border-b border-outline-variant py-3 px-0 focus:ring-0 focus:border-primary transition-all text-on-background placeholder:text-outline/40"
+                                        placeholder="Company Name" type="text" name="company" />
+                                </div>
+                                <div class="relative">
+                                    <label
+                                        class="font-label-caps text-[10px] uppercase text-on-surface-variant mb-1 block">Project
+                                        Type</label>
+                                    <select
+                                        class="w-full bg-transparent border-0 border-b border-outline-variant py-3 px-0 focus:ring-0 focus:border-primary transition-all text-on-background appearance-none"
+                                        name="project_type">
+                                        <option value="Product Design">Product Design</option>
+                                        <option value="UX Strategy">UX Strategy</option>
+                                        <option value="Brand Identity">Brand Identity</option>
+                                        <option value="Full Transformation">Full Transformation</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="relative">
+                                <label
+                                    class="font-label-caps text-[10px] uppercase text-on-surface-variant mb-1 block">Budget
+                                    Range</label>
+                                <input
+                                    class="w-full bg-transparent border-0 border-b border-outline-variant py-3 px-0 focus:ring-0 focus:border-primary transition-all text-on-background placeholder:text-outline/40"
+                                    placeholder="Estimated Budget" type="text" name="budget" />
+                            </div>
+                            <div class="relative">
+                                <label
+                                    class="font-label-caps text-[10px] uppercase text-on-surface-variant mb-1 block">Message</label>
+                                <textarea
+                                    class="w-full bg-transparent border-0 border-b border-outline-variant py-3 px-0 focus:ring-0 focus:border-primary transition-all text-on-background placeholder:text-outline/40 resize-none"
+                                    placeholder="Tell me about your vision..." rows="4" name="message"
+                                    required></textarea>
+                            </div>
+                            <button
+                                class="w-full bg-primary text-on-primary py-5 font-label-caps tracking-widest hover:opacity-90 transition-all"
+                                type="submit" id="submitBtn">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <!-- Footer -->
+    <footer class="bg-surface dark:bg-on-background w-full border-t border-outline-variant/30">
+        <div
+            class="flex flex-col md:flex-row justify-between items-start gap-gutter px-margin-desktop py-section-gap max-w-container-max mx-auto">
+            <div class="space-y-8 max-w-sm">
+                <a class="font-headline-lg text-headline-lg text-on-background dark:text-surface" href="#">
+                    TOLAN DESIGNS
+                </a>
+                <p class="font-body-md text-body-md dark:text-surface-variant">
+                    Merging high-fidelity product design with editorial aesthetic. Helping visionary brands scale
+                    through intentional design.
+                </p>
+                <div class="flex gap-6 font-label-caps text-label-caps">
+                    <a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-all"
+                        href="#">LinkedIn</a>
+                    <a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-all"
+                        href="#">Instagram</a>
+                    <a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-all"
+                        href="#">Behance</a>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-16">
+                <div>
+                    <h5 class="font-label-caps text-on-background dark:text-surface mb-6">Navigation</h5>
+                    <ul class="font-body-md text-on-surface-variant dark:text-surface-variant space-y-4">
+                        <li><a class="hover:text-primary transition-all" href="#">Work</a></li>
+                        <li><a class="hover:text-primary transition-all" href="#">Process</a></li>
+                        <li><a class="hover:text-primary transition-all" href="#">About</a></li>
+                        <li><a class="hover:text-primary transition-all" href="#">Archives</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-label-caps text-on-background dark:text-surface mb-6">Contact</h5>
+                    <ul class="font-body-md text-on-surface-variant dark:text-surface-variant space-y-4">
+                        <li><a class="hover:text-primary transition-all"
+                                href="mailto:omotolanifolashade9@gmail.com">Email</a>
+                        </li>
+                        <li><a class="hover:text-primary transition-all" href="#">Book a Call</a></li>
+                        <li><a class="hover:text-primary transition-all" href="#">X (Twitter)</a></li>
+                    </ul>
+                </div>
+                <div class="hidden md:block">
+                    <h5 class="font-label-caps text-on-background dark:text-surface mb-6">Legal</h5>
+                    <ul class="font-body-md text-on-surface-variant dark:text-surface-variant space-y-4">
+                        <li><a class="hover:text-primary transition-all" href="#">Privacy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-container-max mx-auto px-margin-desktop py-8 border-t border-outline-variant/10">
+            <p
+                class="font-label-caps text-[10px] text-on-surface-variant dark:text-surface-variant text-center md:text-left">
+                © <span id="currentYear"></span> TOLAN DESIGNS. ALL RIGHTS RESERVED.
+            </p>
+        </div>
+    </footer>
+    <script>
+        // Simple scroll reveal
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('reveal-on-scroll');
+            observer.observe(section);
+        });
+
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const menuIcon = document.getElementById('menuIcon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('hidden');
+            if (mobileNav.classList.contains('hidden')) {
+                menuIcon.textContent = 'menu';
+            } else {
+                menuIcon.textContent = 'close';
+            }
+        });
+
+        mobileNav.querySelectorAll('a, button').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.add('hidden');
+                menuIcon.textContent = 'menu';
+            });
+        });
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Form submission handler with AJAX
+        const contactForm = document.getElementById('contactForm');
+        const formStatus = document.getElementById('formStatus');
+        const submitBtn = document.getElementById('submitBtn');
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            formStatus.classList.add('hidden');
+
+            try {
+                const formData = new FormData(contactForm);
+
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    // Success
+                    formStatus.className = 'p-4 mb-4 rounded bg-green-100 text-green-800 border border-green-300';
+                    formStatus.textContent = '✅ Message sent successfully! I\'ll get back to you soon.';
+                    formStatus.classList.remove('hidden');
+                    contactForm.reset();
+                } else {
+                    // Error
+                    formStatus.className = 'p-4 mb-4 rounded bg-red-100 text-red-800 border border-red-300';
+                    formStatus.textContent = '❌ Something went wrong. Please try again or email me directly.';
+                    formStatus.classList.remove('hidden');
+                }
+            } catch (error) {
+                formStatus.className = 'p-4 mb-4 rounded bg-yellow-100 text-yellow-800 border border-yellow-300';
+                formStatus.textContent = 'Sent successfully! Check your email.';
+                formStatus.classList.remove('hidden');
+                contactForm.reset();
+            } finally {
+                submitBtn.textContent = 'Send Message';
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
